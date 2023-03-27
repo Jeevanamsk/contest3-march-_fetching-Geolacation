@@ -5,8 +5,12 @@ const mapDiv = document.getElementById("map");
 
 // Check if location is already stored in local storage
 if (localStorage.getItem("lat") && localStorage.getItem("long")) {
-  getLocationButton.disabled = true; // Disable the button
+  getLocationButton.disabled = true; 
+  removeLocationButton.disabled = false; // Disable the button
   showMap(localStorage.getItem("lat"), localStorage.getItem("long")); // Display the map
+}
+else{
+  removeLocationButton.disabled = true; 
 }
 
 // Add event listeners to buttons
@@ -20,6 +24,7 @@ function getLocation() {
   } else {
     alert("Geolocation is not supported by this browser.");
   }
+  removeLocationButton.disabled = false;
 }
 
 // Define showPosition function
@@ -33,6 +38,7 @@ function showPosition(position) {
 
   // Disable the button
   getLocationButton.disabled = true;
+  
 
   // Display the map
   showMap(lat, long);
@@ -45,8 +51,8 @@ function showError(error) {
 
 // Define showMap function
 function showMap(lat, long) {
-  const mapUrl = `https://www.google.com/maps/embed/v1/view?key=API_KEY&center=${lat},${long}&zoom=16`;
-  mapDiv.innerHTML = `<iframe src="${mapUrl}" width="500" height="400" frameborder="0" style="border:0;" allowfullscreen=""></iframe>`;
+  const mapUrl = `https://maps.google.com/maps?q=${lat},${long}&output=embed`;
+  mapDiv.innerHTML = `<iframe src="${mapUrl}" width="1840" height="780" frameborder="0" style="border:0;padding-left:10px" allowfullscreen=""></iframe>`;
 }
 
 // Define removeLocation function
@@ -54,5 +60,8 @@ function removeLocation() {
   localStorage.removeItem("lat");
   localStorage.removeItem("long");
   getLocationButton.disabled = false;
+  
   mapDiv.innerHTML = "";
+  removeLocationButton.disabled = true;
 }
+//removeLocationButton.disabled = true;
