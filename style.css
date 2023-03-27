@@ -1,6 +1,54 @@
-#map {
-    width: 500px;
-    height: 400px;
-    margin-top: 20px;
-  }
+body{
+  background-color: black;
+  background-image: url('globe.jpg');
+  background-size: cover;
+ height:auto;
+ align-items: center;
+ display: block;
+}
+.container-fluid{
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* background-color: black; */
+  height:100px;
+}
+
+.container-fluid h1{
+  padding-left: 20px;
+  padding-top:20px;
+  font-size: 60px;
+  font-family:'Times New Roman', Times, serif;
+  color:bisque;
+  text-align: center;
+  text-shadow: 7px 7px 16px #e68686,
+               7px 7px 16px #f28797,
+               7px 7px 16px #161515;
+  
+}
+#getLocationButton,#removeLocationButton {
+  display: flexbox;
+  margin: 0 auto;
+  position: relative;
+  justify-content: space-between;
+  padding-left: 10px;
+  width:200px;
+  height:50px;
+  
+  color:black;
+  background-color:bisque;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 400;
+
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* #getLocationButton:hover,#removeLocationButton:hover{
+  background-color: lightsalmon;
+} */
+
   
